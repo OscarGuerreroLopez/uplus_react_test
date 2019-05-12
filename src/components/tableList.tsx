@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { Td } from "../style";
+import { Td, Tr } from "../style";
 
 import { ILoan } from "../model";
 import { Sentence } from "../functions/break";
@@ -20,7 +20,7 @@ export const TableList = (props: { loans: ILoan[] }) => {
         <tbody>
           {loans.map((loan: ILoan) => {
             return (
-              <tr key={loan.id} onClick={() => navigate(`/loan/${loan.id}`)}>
+              <Tr key={loan.id} onClick={() => navigate(`/loan/${loan.id}`)}>
                 <th scope="row">
                   <img
                     src={"https://api.zonky.cz" + loan.photos[0].url}
@@ -31,7 +31,7 @@ export const TableList = (props: { loans: ILoan[] }) => {
 
                 <td>{loan.name}</td>
                 <Td word={loan.story}>{Sentence(loan.story)}</Td>
-              </tr>
+              </Tr>
             );
           })}
         </tbody>

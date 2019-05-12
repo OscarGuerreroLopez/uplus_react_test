@@ -13,3 +13,7 @@ export const Td = styled.td`
   word-wrap: break-word; /* IE 5.5+ */
   //   text-overflow: ellipsis;
 `;
+
+export const Tr = styled.tr`
+  cursor: pointer;
+`;

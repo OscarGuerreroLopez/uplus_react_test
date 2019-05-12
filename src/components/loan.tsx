@@ -1,6 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import find from "lodash/find";
+import { navigate } from "@reach/router";
+import { LoanDisplay } from "./loanDetail";
 
 import { ILoanPropsSingle, IAppState } from "../model";
 
@@ -10,14 +12,13 @@ class Loan extends React.Component<ILoanPropsSingle> {
   };
 
   render() {
-    console.log(this.state.loan);
+    if (!this.state.loan) {
+      navigate("/list");
+    }
 
     return (
       <div className="container-fluid">
-        <div className="container-fluid text-center">
-          <h2>Loan Page</h2>
-          <h5>{this.state.loan!.name}</h5>
-        </div>
+        {this.state.loan ? <LoanDisplay loan={this.state.loan} /> : <></>}
       </div>
     );
   }
