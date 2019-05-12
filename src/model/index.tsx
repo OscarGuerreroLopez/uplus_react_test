@@ -85,21 +85,6 @@ export interface ILoansError {
   error: boolean;
 }
 
-// export interface ILoanGetAllAction {
-//   type: LoanActionTypes.GET_LOAN;
-//   loan: ILoan;
-// }
-
-// export interface ILoanLoading {
-//   type: LoanActionTypes.GET_LOAN_PENDING;
-//   loading: boolean;
-// }
-
-// export interface ILoanError {
-//   type: LoanActionTypes.GET_LOAN_ERROR;
-//   error: boolean;
-// }
-
 export interface ILoansProps {
   loans: ILoan[];
   loading: boolean;
@@ -116,5 +101,3 @@ export interface ILoanPropsSingle {
 }
 
 export type AllActions = ILoansGetAllAction | ILoansLoading | ILoansError;
-
-// export type LoanActions = ILoanGetAllAction | ILoanLoading | ILoanError;
