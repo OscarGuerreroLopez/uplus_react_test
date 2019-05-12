@@ -89,6 +89,10 @@ export interface ILoansProps {
   loans: ILoan[];
   loading: boolean;
   error: boolean;
+  sortDuration: (loans: ILoan[]) => {};
+  sortRating: (loans: ILoan[]) => {};
+  sortAmount: (loans: ILoan[]) => {};
+  sortDate: (loans: ILoan[]) => {};
 }
 
 export interface ITableListProps {
@@ -98,6 +102,10 @@ export interface ITableListProps {
 export interface ILoanPropsSingle {
   id: string;
   loans: ILoan[];
+}
+
+export interface ITimeFetch {
+  getAllLoans: () => {};
 }
 
 export type AllActions = ILoansGetAllAction | ILoansLoading | ILoansError;

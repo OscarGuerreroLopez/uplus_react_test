@@ -5,7 +5,12 @@ import axios from "axios";
 
 import { ILoansState, LoansActionTypes, AllActions } from "../model";
 
-import { compare_duration_asc } from "../functions/compare_duration";
+import {
+  sort_duration_asc,
+  sort_rating_asc,
+  sort_amount_asc,
+  sort_date_asc
+} from "../functions/compare_duration";
 
 export const getAllLoans: ActionCreator<
   ThunkAction<Promise<any>, ILoansState, null, AllActions>
@@ -29,7 +34,7 @@ export const getAllLoans: ActionCreator<
       .get("http://localhost:3000/zonky", axiosConfig)
       .then(response => {
         dispatch({
-          loans: response.data.sort(compare_duration_asc),
+          loans: response.data.sort(sort_duration_asc),
           type: LoansActionTypes.GET_ALL
         });
         dispatch({
@@ -53,5 +58,81 @@ export const getAllLoans: ActionCreator<
           loading: false
         });
       });
+  };
+};
+
+export const sortDuration: ActionCreator<
+  ThunkAction<Promise<any>, ILoansState, null, AllActions>
+> = loans => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: true
+    });
+    dispatch({
+      loans: loans.sort(sort_duration_asc),
+      type: LoansActionTypes.GET_ALL
+    });
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: false
+    });
+  };
+};
+
+export const sortRating: ActionCreator<
+  ThunkAction<Promise<any>, ILoansState, null, AllActions>
+> = loans => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: true
+    });
+    dispatch({
+      loans: loans.sort(sort_rating_asc),
+      type: LoansActionTypes.GET_ALL
+    });
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: false
+    });
+  };
+};
+
+export const sortAmount: ActionCreator<
+  ThunkAction<Promise<any>, ILoansState, null, AllActions>
+> = loans => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: true
+    });
+    dispatch({
+      loans: loans.sort(sort_amount_asc),
+      type: LoansActionTypes.GET_ALL
+    });
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: false
+    });
+  };
+};
+
+export const sortDate: ActionCreator<
+  ThunkAction<Promise<any>, ILoansState, null, AllActions>
+> = loans => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: true
+    });
+    dispatch({
+      loans: loans.sort(sort_date_asc),
+      type: LoansActionTypes.GET_ALL
+    });
+    dispatch({
+      type: LoansActionTypes.GET_LOANS_PENDING,
+      loading: false
+    });
   };
 };

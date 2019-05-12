@@ -2,7 +2,7 @@ import React from "react";
 
 import { ILoan } from "../model";
 
-import { ConvertDate } from "../functions/convert_date";
+import { ConvertDateHours } from "../functions/convert_date";
 
 export const LoanDisplay = (props: { loan: ILoan }) => {
   const { loan } = props;
@@ -69,11 +69,11 @@ export const LoanDisplay = (props: { loan: ILoan }) => {
             </p>
             <p>
               <b>Date Published: </b>
-              {ConvertDate(loan.datePublished)}
+              {ConvertDateHours(loan.datePublished)}
             </p>
             <p>
               <b>Dead line: </b>
-              {ConvertDate(loan.deadline)}
+              {ConvertDateHours(loan.deadline)}
             </p>
             <p>
               <b>Amount: </b>

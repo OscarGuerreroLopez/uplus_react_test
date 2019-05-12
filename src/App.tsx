@@ -1,9 +1,24 @@
 import * as React from "react";
 import RouterMain from "./router";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import { connect } from "react-redux";
+import { ThunkDispatch } from "redux-thunk";
 
-class App extends React.Component {
+import { ITimeFetch } from "./model";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { getAllLoans } from "./actions/LoansActions";
+
+class App extends React.Component<ITimeFetch, { intervalId: any }> {
+  componentDidMount() {
+    const check = setInterval(this.props.getAllLoans, 300000);
+    this.setState({ intervalId: check });
+  }
+
+  componentWillUnmount() {
+    // use intervalId from the state to clear the interval
+    clearInterval(this.state.intervalId);
+  }
   render() {
     return (
       <div className="App">
@@ -13,4 +28,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
+  return {
+    getAllLoans: () => {
+      return dispatch(getAllLoans());
+    }
+  };
+};
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
