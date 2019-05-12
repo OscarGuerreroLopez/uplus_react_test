@@ -1,31 +1,31 @@
 import { Reducer } from "redux";
 import {
   AllActions,
-  initialLoanState,
-  ILoanState,
-  LoanActionTypes
+  initialLoansState,
+  ILoansState,
+  LoansActionTypes
 } from "../model";
 
-export const loanReducer: Reducer<ILoanState, AllActions> = (
-  state = initialLoanState,
+export const loanReducer: Reducer<ILoansState, AllActions> = (
+  state = initialLoansState,
   action
 ) => {
   switch (action.type) {
-    case LoanActionTypes.GET_ALL: {
+    case LoansActionTypes.GET_ALL: {
       return {
         ...state,
         loans: action.loans
       };
     }
 
-    case LoanActionTypes.GET_LOANS_PENDING: {
+    case LoansActionTypes.GET_LOANS_PENDING: {
       return {
         ...state,
         loading: action.loading
       };
     }
 
-    case LoanActionTypes.GET_LOANS_ERROR: {
+    case LoansActionTypes.GET_LOANS_ERROR: {
       return {
         ...state,
         error: action.error

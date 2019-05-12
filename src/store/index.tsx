@@ -7,7 +7,7 @@ import { IAppState } from "../model";
 import { loanReducer } from "../reducers/loanReducer";
 
 const rootReducer = combineReducers<IAppState>({
-  loanState: loanReducer
+  loansState: loanReducer
 });
 
 const logger = createLogger({

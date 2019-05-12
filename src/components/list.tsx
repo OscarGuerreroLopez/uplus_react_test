@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { connect } from "react-redux";
 
-import { IAppState, ILoanProps } from "../model";
+import { IAppState, ILoansProps } from "../model";
 import { TableList } from "./tableList";
 
-class List extends React.Component<ILoanProps> {
+class List extends React.Component<ILoansProps> {
   componentDidMount() {}
   render() {
     const { loans, loading, error } = this.props;
@@ -32,9 +32,9 @@ class List extends React.Component<ILoanProps> {
 
 const mapStateToProps = (store: IAppState) => {
   return {
-    loans: store.loanState.loans,
-    loading: store.loanState.loading,
-    error: store.loanState.error
+    loans: store.loansState.loans,
+    loading: store.loansState.loading,
+    error: store.loansState.error
   };
 };
 

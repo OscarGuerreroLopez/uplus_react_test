@@ -3,16 +3,16 @@ import { ThunkAction } from "redux-thunk";
 // import { Observable } from "rxjs";
 import axios from "axios";
 
-import { ILoanState, LoanActionTypes, AllActions } from "../model";
+import { ILoansState, LoansActionTypes, AllActions } from "../model";
 
 import { compare_duration_asc } from "../functions/compare_duration";
 
 export const getAllLoans: ActionCreator<
-  ThunkAction<Promise<any>, ILoanState, null, AllActions>
+  ThunkAction<Promise<any>, ILoansState, null, AllActions>
 > = () => {
   return async (dispatch: Dispatch) => {
     dispatch({
-      type: LoanActionTypes.GET_LOANS_PENDING,
+      type: LoansActionTypes.GET_LOANS_PENDING,
       loading: true
     });
     let axiosConfig = {
@@ -30,26 +30,26 @@ export const getAllLoans: ActionCreator<
       .then(response => {
         dispatch({
           loans: response.data.sort(compare_duration_asc),
-          type: LoanActionTypes.GET_ALL
+          type: LoansActionTypes.GET_ALL
         });
         dispatch({
-          type: LoanActionTypes.GET_LOANS_ERROR,
+          type: LoansActionTypes.GET_LOANS_ERROR,
           error: false
         });
 
         dispatch({
-          type: LoanActionTypes.GET_LOANS_PENDING,
+          type: LoansActionTypes.GET_LOANS_PENDING,
           loading: false
         });
       })
       .catch(err => {
         console.error(err);
         dispatch({
-          type: LoanActionTypes.GET_LOANS_ERROR,
+          type: LoansActionTypes.GET_LOANS_ERROR,
           error: true
         });
         dispatch({
-          type: LoanActionTypes.GET_LOANS_PENDING,
+          type: LoansActionTypes.GET_LOANS_PENDING,
           loading: false
         });
       });

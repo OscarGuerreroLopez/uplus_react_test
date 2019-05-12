@@ -1,5 +1,5 @@
 export interface IAppState {
-  loanState: ILoanState;
+  loansState: ILoansState;
 }
 
 export interface IPhotos {
@@ -7,11 +7,17 @@ export interface IPhotos {
   url: string;
 }
 
-export enum LoanActionTypes {
+export enum LoansActionTypes {
   GET_ALL = "GET_ALL",
   GET_LOANS_PENDING = "GET_LOANS_PENDING",
   GET_LOANS_ERROR = "GET_LOANS_ERROR"
 }
+
+// export enum LoanActionTypes {
+//   GET_LOAN_PENDING = "GET_LOAN_PENDING",
+//   GET_LOAN = "GET_LOAN",
+//   GET_LOAN_ERROR = "GET_LOAN_ERROR"
+// }
 
 export interface ILoan {
   readonly id: number;
@@ -52,34 +58,49 @@ export interface ILoan {
   readonly annuityWithInsurance: number;
 }
 
-export interface ILoanState {
+export interface ILoansState {
   loans: ILoan[];
   loading: boolean;
   error: boolean;
 }
 
-export const initialLoanState: ILoanState = {
+export const initialLoansState: ILoansState = {
   loans: [],
   loading: false,
   error: false
 };
 
-export interface ILoanGetAllAction {
-  type: LoanActionTypes.GET_ALL;
+export interface ILoansGetAllAction {
+  type: LoansActionTypes.GET_ALL;
   loans: ILoan[];
 }
 
-export interface ILoanLoading {
-  type: LoanActionTypes.GET_LOANS_PENDING;
+export interface ILoansLoading {
+  type: LoansActionTypes.GET_LOANS_PENDING;
   loading: boolean;
 }
 
-export interface ILoanError {
-  type: LoanActionTypes.GET_LOANS_ERROR;
+export interface ILoansError {
+  type: LoansActionTypes.GET_LOANS_ERROR;
   error: boolean;
 }
 
-export interface ILoanProps {
+// export interface ILoanGetAllAction {
+//   type: LoanActionTypes.GET_LOAN;
+//   loan: ILoan;
+// }
+
+// export interface ILoanLoading {
+//   type: LoanActionTypes.GET_LOAN_PENDING;
+//   loading: boolean;
+// }
+
+// export interface ILoanError {
+//   type: LoanActionTypes.GET_LOAN_ERROR;
+//   error: boolean;
+// }
+
+export interface ILoansProps {
   loans: ILoan[];
   loading: boolean;
   error: boolean;
@@ -89,4 +110,11 @@ export interface ITableListProps {
   loans: ILoan[];
 }
 
-export type AllActions = ILoanGetAllAction | ILoanLoading | ILoanError;
+export interface ILoanPropsSingle {
+  id: string;
+  loans: ILoan[];
+}
+
+export type AllActions = ILoansGetAllAction | ILoansLoading | ILoansError;
+
+// export type LoanActions = ILoanGetAllAction | ILoanLoading | ILoanError;
