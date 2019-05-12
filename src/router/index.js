@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 
 import { Home } from "../components/home.tsx";
 import List from "../components/list.tsx";
+import Loan from "../components/loan.tsx";
 
 const RouterMain = () => {
   return (
@@ -10,6 +11,7 @@ const RouterMain = () => {
       <Home path="/" />
       <Home path="home" />
       <List path="list" />
+      <Loan path="loan/:id" />
     </Router>
   );
 };

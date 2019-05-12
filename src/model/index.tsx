@@ -85,4 +85,8 @@ export interface ILoanProps {
   error: boolean;
 }
 
+export interface ITableListProps {
+  loans: ILoan[];
+}
+
 export type AllActions = ILoanGetAllAction | ILoanLoading | ILoanError;
