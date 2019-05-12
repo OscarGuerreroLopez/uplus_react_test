@@ -6,9 +6,7 @@ import { IAppState, ILoanProps } from "../model";
 import { TableList } from "./tableList";
 
 class List extends React.Component<ILoanProps> {
-  componentDidMount() {
-    console.log(this.props);
-  }
+  componentDidMount() {}
   render() {
     const { loans, loading, error } = this.props;
     return (
