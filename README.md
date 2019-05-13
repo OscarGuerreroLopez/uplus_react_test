@@ -2,6 +2,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Test
 
+This was the test
+Schedule a single-page application that checks the new zonky.cz market every 5 minutes and
+lists them.
+The list of loans will include an image, a name and a story limited to 20 words with a total
+maximum story length of 200 characters.
+The list of loans can be sorted by duration, rating, required amount and deadline.
+Each of the loans can be clicked by the user to see its detail with all of the API data.
+Use React to develop the application
+Apply at least two tests to the application
+don't forget to deploy to either your server, heroku or something available on the internet...
+API can be found at: https://api.zonky.cz/loans/marketplace
+
+## Notes
+
 If you need to run it locally first you need to get the uplus_node server running in your local computer
 If you don't want to clone the server then at the LoansActions files comment the line for localhost and
 uncomment the one to my server
