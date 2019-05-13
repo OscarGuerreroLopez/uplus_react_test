@@ -17,3 +17,8 @@ export const Td = styled.td`
 export const Tr = styled.tr`
   cursor: pointer;
 `;
+
+export const PSort = styled.p`
+  cursor: pointer;
+  color: #3419e3;
+`;

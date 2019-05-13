@@ -31,7 +31,9 @@ export const getAllLoans: ActionCreator<
     };
 
     axios
-      .get("http://localhost:3000/zonky", axiosConfig)
+      .get("http://localhost:8080/zonky", axiosConfig)
+      // if you run it in your computer comment the line above and uncomment the one below
+      // .get("http://www.oscarcomputerguy.com:8080/zonky", axiosConfig)
       .then(response => {
         dispatch({
           loans: response.data.sort(sort_duration_asc),

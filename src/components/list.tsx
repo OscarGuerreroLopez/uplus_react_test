@@ -12,6 +12,8 @@ import {
   sortDate
 } from "../actions/LoansActions";
 
+import { PSort } from "../style";
+
 class List extends React.Component<ILoansProps> {
   duration = () => {
     this.props.sortDuration(this.props.loans);
@@ -48,16 +50,16 @@ class List extends React.Component<ILoansProps> {
               <div className="container mb-3">
                 <div className="row">
                   <div className="col-sm" onClick={() => this.duration()}>
-                    Duration
+                    <PSort>Duration</PSort>
                   </div>
                   <div className="col-sm" onClick={() => this.rating()}>
-                    Rating
+                    <PSort>Rating</PSort>
                   </div>
                   <div className="col-sm" onClick={() => this.amount()}>
-                    Amount required
+                    <PSort>Amount required</PSort>
                   </div>
                   <div className="col-sm" onClick={() => this.date()}>
-                    Deadline
+                    <PSort>Deadline</PSort>
                   </div>
                 </div>
               </div>
