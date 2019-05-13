@@ -2,6 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Test
 
+If you need to run it locally first you need to get the uplus_node server running in your local computer
+If you don't want to clone the server then at the LoansActions files comment the line for localhost and
+uncomment the one to my server
+
 ## Available Scripts
 
 In the project directory, you can run:
